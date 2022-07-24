@@ -24,10 +24,10 @@ use tags *div*, *h1* and *p*, we have to desconstruct them from the
 magic object *ftags.html*. They are functions that create DOM elements
 with the same variable name. 
 
-ftags.html is indeed a [Proxy object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy). Any X property that is requested will be returned a factory for creating an element of type X, regardless of whether X is a known element type or a [custom element](https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry).
+The object ftags.html is indeed a [Proxy object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy). Any X property that is requested will be returned as factory for creating an element of type X, regardless of whether X is a known element type or a [custom element](https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry).
 
-The value returned from tag factories are regular DOM elements so that they can be inserted 
-into DOM Tree as usual:
+The value returned from tag factories is a regular DOM tree so that they can be inserted 
+into document as usual:
 
 ```javascript
 window.addEventListener("load",ev=>{
