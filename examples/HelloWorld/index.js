@@ -1,5 +1,3 @@
-import { ftags } from "../../lib/ftags.js";
-
 function sayHello() {
     /* "desconstruct" from ftags.html tags used by this template */
     const { div, h1, p } = ftags.html;
