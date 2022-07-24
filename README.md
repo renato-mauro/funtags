@@ -4,8 +4,43 @@ Create DOM trees from plain vanilla javascript functions. No transpilation nor a
 
 ## How it Works (Hello World!)
 
+```javascript
+function sayHello() {
+    /* "desconstruct" from ftags.html tags used by this template */
+    const { div, h1, p } = ftags.html;
 
+    /* create dom hierarchy by composing function call */
+    return div(
+        h1("Hello World"),
+        p("Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
+        p("Donec a nunc mi."),
+        p("Vestibulum at felis tempus, suscipit nisi in, semper nisl.")
+    );
+}
+```
 
+Here we have a function to generate our DOM fragment. As we are going to
+use tags *div*, *h1* and *p*, we have to desconstruct them from the 
+magic object *ftags.html*. They are functions that create DOM elements
+with the same variable name. 
+
+ftags.html is indeed a [Proxy object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy). Any X property that is requested will be returned a factory for creating an element of type X, regardless of whether X is a known element type or a [custom element](https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry).
+
+The value returned from tag factories are regular DOM elements so that they can be inserted 
+into DOM Tree as usual:
+
+```javascript
+window.addEventListener("load",ev=>{
+    document.body.replaceChildren(sayHello());
+});
+```
+
+<p class="codepen" data-height="300" data-default-tab="js,result" data-slug-hash="wvmqvOv" data-editable="true" data-user="renatomauro" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/renatomauro/pen/wvmqvOv">
+  ftags Hello World!</a> by Renato Mauro (<a href="https://codepen.io/renatomauro">@renatomauro</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
 ## Examples
 
