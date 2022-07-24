@@ -1,1 +1,1 @@
-export * from "./lib/ftags.js";
+export * from "./lib/funtags.js";
