@@ -36,7 +36,7 @@ import { ft } from "@rmauro/funtags"
 const ft = (function(){
     const HTML_NS = "http://www.w3.org/1999/xhtml";
     const SVG_NS = "http://www.w3.org/2000/svg";
-    function tagFactory(NStagName) {
+    function tagFactory(NS,tagName) {
         return function(...args) {
             let element = document.createElementNS(NS,tagName);
             function flatten(e) {
