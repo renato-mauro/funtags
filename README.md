@@ -33,9 +33,9 @@ window.addEventListener("load",ev=>{
 
 See live code in [code pen](https://codepen.io/renatomauro/pen/wvmqvOv).
 
-## Examples
+## More Examples
 
-### Bullet List
+### List of Objects
 
 ```javascript
 function fruitList(fruits) {
