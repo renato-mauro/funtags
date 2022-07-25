@@ -58,7 +58,6 @@ element in array is passed as argument to function.
 
 See live code in [code pen](https://codepen.io/renatomauro/pen/poLrpPP).
 
-
 ### Attributes and Events
 
 ```javascript
@@ -113,6 +112,9 @@ will produce
 
 with click event handler registered to function addName.
 
+See live code in [code pen](https://codepen.io/renatomauro/pen/abYyYML).
+
+
 ### Table with async data
 
 Function userTable creates a HTML table for an array of user objects. 
@@ -164,5 +166,4 @@ function page() {
 document.body.replaceChildren(page());
 ```
 
-
-
+See live code in [code pen](https://codepen.io/renatomauro/pen/dymzKbb).
