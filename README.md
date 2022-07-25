@@ -46,7 +46,7 @@ function fruitList(fruits) {
     return div(
         h1("Fruit List"),
         ul(
-          fruits.map(fruit => li(fruit))
+          ...fruits.map(fruit => li(fruit))
         )
     );
 }
@@ -58,4 +58,58 @@ Arrays can be passed as arguments to tag functions. In this case, all elements a
 
 See live code in [code pen](https://codepen.io/renatomauro/pen/poLrpPP).
 
+
+### Attributes and Events
+
+```javascript
+function nameList() {
+    const { div, h1, ul, li, input, button } = ft.html;
+    let names = [];
+
+    function addName() {
+      names.push(nameInput.value);
+      nameList.replaceChildren(...names.map(name=>li(name)));
+      nameInput.value = "";
+      nameInput.focus();
+    }
+  
+    let nameList = ul();
+    let nameInput = input({type:"text",placeholder:"new name"});
+    let addButton = button({onclick:addName},"add");
+  
+    return div(
+        h1("Name List"),
+        div(nameInput, addButton),
+        div(nameList)
+    );
+}
+
+document.body.replaceChildren(nameList());
+```
+
+Attributes are defined as javascript objects. The line
+
+```javascript
+input({type:"text",placeholder:"new name"})
+````
+
+will produce
+
+```html
+<input type="text" placeholder="new name">
+```
+
+Attributes starting with the prefix "on" will be treated as event handlers.
+
+```javascript
+button({onclick:addName},"add");
+````
+
+will produce
+
+```html
+<button>add</button>
+```
+
+with click event handler registered to function addName.
 
