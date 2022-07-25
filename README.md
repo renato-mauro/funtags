@@ -54,7 +54,7 @@ function fruitList(fruits) {
 document.body.replaceChildren(fruitList(["apple","orange","lemon"]));
 ```
 
-In this example we are using array map function with [spread operator (...)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax). Each
+In this example we are using [array map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) method with [spread operator (...)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax). Each
 element in array is passed as argument to function.
 
 See live code in [code pen](https://codepen.io/renatomauro/pen/poLrpPP).
