@@ -16,7 +16,7 @@
     "url": "git+https://github.com/renato-mauro/ftags.git"
   },
   "keywords": [
-    "DOM"
+    "dom","browser","javascript","data-join"
   ],
   "author": "Renato Campos Mauro",
   "license": "ISC",
