@@ -100,7 +100,7 @@ will produce
 <input type="text" placeholder="new name">
 ```
 
-Attributes starting with the prefix "on" are be treated as event handlers.
+Attributes starting with the prefix "on" is treated as event handlers.
 
 ```javascript
 button({onclick:addName},"add");
