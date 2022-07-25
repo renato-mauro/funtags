@@ -1,6 +1,6 @@
 {
   "name": "funtags",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Create DOM trees from plain vanilla javascript functions. No transpilation nor alien languages. Just a little bit trick.",
   "main": "index.js",
   "directories": {
