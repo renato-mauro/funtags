@@ -54,7 +54,8 @@ function fruitList(fruits) {
 document.body.replaceChildren(fruitList(["apple","orange","lemon"]));
 ```
 
-Arrays can be passed as arguments to tag functions. In this case, all elements are appended to their parents. Multidimensional arrays are flattened recursively.
+In this example we are using array map function with [spread operator (...)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax). Each
+element in array is passed as argument to function.
 
 See live code in [code pen](https://codepen.io/renatomauro/pen/poLrpPP).
 
@@ -99,7 +100,7 @@ will produce
 <input type="text" placeholder="new name">
 ```
 
-Attributes starting with the prefix "on" will be treated as event handlers.
+Attributes starting with the prefix "on" are be treated as event handlers.
 
 ```javascript
 button({onclick:addName},"add");
