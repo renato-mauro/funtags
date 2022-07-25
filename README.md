@@ -22,7 +22,15 @@ Create DOM trees from plain vanilla javascript functions. No transpilation nor a
 npm install funtags
 ```
 
-### Option 4 - Copy and Paste entire library in your code
+### Option 4 - ObservableHQ
+
+You can play (and use) FunTags in [ObservableHQ](https://observablehq.com/@rmauro/funtags). If you want to import in your own notebook, just create a import and have fun!
+
+```javascript
+import { ft } from "@rmauro/funtags"
+```
+
+### Option 5 - Copy and Paste entire library in your code
 
 ```javascript
 const ft = (function(){
