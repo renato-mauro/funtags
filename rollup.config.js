@@ -1,7 +1,7 @@
 export default {
     input: "index.js",
     output: {
-        file: "dist/ft.min.js",
+        file: "dist/ftags.min.js",
         name: "ft",
         format: "umd"
     }

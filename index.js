@@ -1,1 +1,1 @@
-export * from "./lib/funtags.js";
+export { ft as default } from "./lib/funtags.js";
