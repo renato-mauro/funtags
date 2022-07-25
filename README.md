@@ -24,7 +24,7 @@ npm install funtags
 
 ### Option 4 - ObservableHQ
 
-You can play (and use) FunTags in [ObservableHQ](https://observablehq.com/@rmauro/funtags). If you want to import in your own notebook, just create a import and have fun!
+You can play (and use) FunTags in [ObservableHQ](https://observablehq.com/@rmauro/funtags). If you want to import in your own notebook, just import and have fun!
 
 ```javascript
 import { ft } from "@rmauro/funtags"
