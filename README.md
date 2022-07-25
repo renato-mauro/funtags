@@ -1,6 +1,6 @@
 # <FunTags :)> - Functional Tags
 
-Create DOM trees from plain vanilla javascript functions. No transpilation nor alien languages. Just a little bit trick. 
+Create DOM trees from plain vanilla javascript functions. No transpilation nor alien languages. Just a little bit of magic with Proxy Objects.
 
 ## How it Works (Hello World!)
 
@@ -19,15 +19,11 @@ function sayHello() {
 }
 ```
 
-Here we have a function to generate our DOM fragment. As we are going to
-use tags *div*, *h1* and *p*, we have to desconstruct them from the 
-magic object *ft.html*. They are functions that create DOM elements
-with the same variable name. 
+Here we have a function to generate our DOM fragment. As we are going to use tags like *div*, *h1*, and *p*, we have to desconstruct them from the magic object *ft.html*. They are functions that create DOM elements with the same variable name.
 
-The object ft.html is indeed a [Proxy object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy). Any X property that is requested will be returned as factory for creating an element of type X, regardless of whether X is a known element type or a [custom element](https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry).
+The object ft.html is indeed a [Proxy object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy). Any X property that is requested will be returned as a factory for creating an element of type X, regardless of whether X is a known element type or a [custom element](https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry).
 
-The value returned from tag factories is a regular DOM tree so that they can be inserted 
-into document as usual:
+The value returned from tag factories is a regular DOM tree so that they can be inserted into documents as usual:
 
 ```javascript
 window.addEventListener("load",ev=>{
@@ -41,12 +37,25 @@ See live code in [code pen](https://codepen.io/renatomauro/pen/wvmqvOv).
 
 ### Bullet List
 
-### SVG
+```javascript
+function fruitList(fruits) {
+    /* "desconstruct" from ftags.html tags used by this template */
+    const { div, h1, ul, li } = ft.html;
 
-### Bootstrap Table + Fetch Data
+    /* create dom hierarchy by composing function call */
+    return div(
+        h1("Fruit List"),
+        ul(
+          fruits.map(fruit => li(fruit))
+        )
+    );
+}
 
+document.body.replaceChildren(fruitList(["apple","orange","lemon"]));
+```
 
-## The Source
+Arrays can be passed as arguments to tag functions. In this case, all elements are appended to their parents. Multidimensional arrays are flattened recursively.
 
-## Future Plans
+See live code in [code pen](https://codepen.io/renatomauro/pen/poLrpPP).
+
 
