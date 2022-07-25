@@ -23,12 +23,11 @@ Here we have a function to generate our DOM fragment. As we are going to use tag
 
 The object ft.html is indeed a [Proxy object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy). Any X property that is requested will be returned as a factory for creating an element of type X, regardless of whether X is a known element type or a [custom element](https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry).
 
-The value returned from tag factories is a regular DOM tree so that they can be inserted into documents as usual:
+The value returned from tag factories is a regular DOM tree so that they can be inserted into documents as usual. In this example, we replaced the content of body
+element with [replaceChildren](https://developer.mozilla.org/en-US/docs/Web/API/Element/replaceChildren) method.
 
 ```javascript
-window.addEventListener("load",ev=>{
-    document.body.replaceChildren(sayHello());
-});
+document.body.replaceChildren(sayHello());
 ```
 
 See live code in [code pen](https://codepen.io/renatomauro/pen/wvmqvOv).
@@ -113,4 +112,57 @@ will produce
 ```
 
 with click event handler registered to function addName.
+
+### Table with async data
+
+Function userTable creates a HTML table for an array of user objects. 
+
+```javascript
+function userTable(data) {
+    const { table, thead, tbody, tr, th, td } = ft.html;
+
+    return table(
+      thead(
+        tr(
+          th("#"),th("Firts Name"),th("Last Name"),th("Gender"),th("Email"),th("Birth Date")
+        )
+      ),
+      tbody(
+        ...data.map(d=>tr(
+          td(d.id),
+          td(d.firstName),
+          td(d.lastName),
+          td(d.gender),
+          td(d.email),
+          td(d.birthDate)
+        ))
+      )
+    );
+}
+```
+
+Function page bellow creates a HTML fragment with a title and a placeHolder,
+initially with "loading..." message. An API request is done by [fetch](https://developer.mozilla.org/en-US/docs/Web/API/fetch) function and
+once fullfilled the request, placeHolder content is replaced by data table.
+
+```javascript
+function page() {
+  const { div, h1, p } = ft.html;  
+  let placeHolder = div(p("Loading..."));
+  
+  fetch("https://dummyjson.com/users")
+    .then(response=>response.json())
+    .then(data=>{placeHolder.replaceChildren(userTable(data.users))})
+  ;
+  
+  return div(
+    h1("User Data"),
+    placeHolder
+  );
+}
+
+document.body.replaceChildren(page());
+```
+
+
 
