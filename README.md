@@ -202,7 +202,7 @@ function userTable(data) {
     return table(
       thead(
         tr(
-          th("#"),th("Firts Name"),th("Last Name"),th("Gender"),th("Email"),th("Birth Date")
+          th("#"),th("First Name"),th("Last Name"),th("Gender"),th("Email"),th("Birth Date")
         )
       ),
       tbody(
