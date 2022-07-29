@@ -8,5 +8,5 @@ export interface FunTagsInterface {
     html:ElementFactory;
     svg:ElementFactory;
 }
-
-export const ft:FunTagsInterface;
+const ft:FunTagsInterface;
+export default ft;
