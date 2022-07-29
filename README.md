@@ -63,7 +63,8 @@ const ft = (function(){
                                 }
                             }
                         } else {
-                            element.innerHTML=e;
+                            element.append(document.createTextNode(e));
+                            element.normalize();
                         }
                     }
                 }
