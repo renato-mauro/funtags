@@ -1,12 +1,12 @@
 type TagName = string;
-type AttributeList = Record<string,any>;
-type ElementFactoryArgument = AttributeList | Element | string;
-type ElementFactory = Record<TagName,(...args:ElementFactoryArgument) => Element>;
-type FactoriesNames = "html" | "svg";
+export type AttributeList = Record<string,any>;
+export type ElementFactoryArgument = AttributeList | Element | string;
+export type ElementFactory = Record<TagName,(...args:ElementFactoryArgument) => Element>;
+export type FactoriesNames = "html" | "svg";
 
-interface FunTagsInterface {
+export interface FunTagsInterface {
     html:ElementFactory;
     svg:ElementFactory;
 }
 
-export const ft: FunTagsInterface;
+export const ft:FunTagsInterface;
